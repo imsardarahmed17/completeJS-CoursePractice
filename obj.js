@@ -1,54 +1,47 @@
-//Type Conversion and Type Coersion
+// Coding Challenge #1
+// Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new 
+// gymnastics discipline, which works differently.
+// Each team competes 3 times, and then the average of the 3 scores is calculated (so 
+// one average score per team).
+// A team only wins if it has at least double the average score of the other team. 
+// Otherwise, no team wins!
+// Your tasks:
+// 1. Create an arrow function 'calcAverage' to calculate the average of 3 scores
+// 2. Use the function to calculate the average for both teams
+// 3. Create a function 'checkWinner' that takes the average score of each team 
+// as parameters ('avgDolhins' and 'avgKoalas'), and then logs the winner 
+// to the console, together with the victory points, according to the rule above. 
+// Example: "Koalas win (30 vs. 13)"
+// 4. Use the 'checkWinner' function to determine the winner for both Data 1 and 
+// Data 2
+// 5. Ignore draws this time
+// Test data:
+// § Data 1: Dolphins score 44, 23 and 71. Koalas score 65, 54 and 49
+// § Data 2: Dolphins score 85, 54 and 41. Koalas score 23, 34 and 27
 
-console.log(Number("77") + 25);
-console.log(String(25) + 25);
+//Solution:
 
-console.log("70" + 25); // 7025
-console.log("70" - 25); // 45
-console.log("70" * 25); // 1750
-console.log("70" / 25); // 2.8
+const calcAverage = (scoreOne, scoreTwo, scoreThree) => {
+  let avgScore = (scoreOne + scoreTwo + scoreThree) / 3;
+  return avgScore;
+};
 
-// coding challenge 3
+let dolphinsAvgScore = calcAverage(85, 54, 41);
+console.log(dolphinsAvgScore);
+let koalasAvgScore = calcAverage(23, 34, 27);
+console.log(koalasAvgScore);
 
-//Data 1
-let dolphinsAvgScre = (96+108+89)/3
-let koalasAvgScre = (88 + 91 + 110)/3
-
-console.log(dolphinsAvgScre , koalasAvgScre );
-if (dolphinsAvgScre > koalasAvgScre && dolphinsAvgScre >= 100 ) {
- console.log("Dlphins wins the trophy"); 
-} else if (koalasAvgScre > dolphinsAvgScre &&
-   koalasAvgScre >= 100 ) {
-  console.log("Koalas wins the trophy"); 
-} else if (dolphinsAvgScre === koalasAvgScre || dolphinsAvgScre < 100 ||
-   koalasAvgScre < 100  ){
-console.log("The match is draw");
-}
-//Data 2
-// let dolphinsAvgScre = (97+112+101)/3
-// let koalasAvgScre = (109 + 95 + 123)/3
-
-console.log(dolphinsAvgScre , koalasAvgScre );
-if (dolphinsAvgScre > koalasAvgScre && dolphinsAvgScre >= 100 ) {
- console.log("Dlphins wins the trophy"); 
-} else if (koalasAvgScre > dolphinsAvgScre &&
-   koalasAvgScre >= 100 ) {
-  console.log("Koalas wins the trophy"); 
-} else if (dolphinsAvgScre === koalasAvgScre || dolphinsAvgScre < 100 ||
-   koalasAvgScre < 100  ){
-console.log("The match is draw");
-}
-
-//Data 3
-// let dolphinsAvgScre = (97+112+101)/3
-// let koalasAvgScre = (109 + 95 + 106)/3
-console.log(dolphinsAvgScre , koalasAvgScre );
-if (dolphinsAvgScre > koalasAvgScre && dolphinsAvgScre >= 100 ) {
- console.log("Dlphins wins the trophy"); 
-} else if (koalasAvgScre > dolphinsAvgScre &&
-   koalasAvgScre >= 100 ) {
-  console.log("Koalas wins the trophy"); 
-} else if (dolphinsAvgScre === koalasAvgScre || dolphinsAvgScre < 100 ||
-   koalasAvgScre < 100  ){
-console.log("The match is draw");
-}
+const checkWinner = (dolphinsAvgScore, koalasAvgScore) => {
+  if (dolphinsAvgScore > 2 * koalasAvgScore) {
+    console.log(
+      `Dolphins are the winner scoring ${dolphinsAvgScore} points against ${koalasAvgScore} `
+    );
+  } else if (koalasAvgScore > 2 * dolphinsAvgScore) {
+    console.log(
+      `koalas are the winner scoring ${koalasAvgScore} points against ${dolphinsAvgScore} `
+    );
+  } else {
+    console.log("No team is the winner");
+  }
+};
+checkWinner(dolphinsAvgScore, koalasAvgScore);
